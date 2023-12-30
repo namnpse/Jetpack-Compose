@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -36,30 +37,41 @@ fun MainScreen() {
         color = Color.DarkGray,
         modifier = Modifier.fillMaxSize(),
     ) {
-        Surface(
-            color = Color.Green,
-            modifier = Modifier.wrapContentSize(
-                align = Alignment.BottomCenter
-            ),
-        ){
-            Row(
-                modifier = Modifier.size(300.dp),
-                horizontalArrangement = Arrangement.SpaceAround,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.SpaceEvenly,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Surface(
+                color = Color.Green,
+                modifier = Modifier.wrapContentSize(
+                    align = Alignment.BottomCenter
+                ),
+            ){
+                Row(
+                    modifier = Modifier.size(300.dp),
+                    horizontalArrangement = Arrangement.SpaceAround,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
 //                    color = Color.Red,
-                    modifier = Modifier.background(Color.Red),
-                    text = "Wrapped content",
+                        modifier = Modifier.background(Color.Red),
+                        text = "Wrapped content",
 //                modifier = Modifier.wrapContentSize(), default is wrap content -> can be removed
-                    style = MaterialTheme.typography.headlineLarge,
-                )
-                Text(
-                    modifier = Modifier.background(Color.Yellow),
-                    text = "a",
-                    style = MaterialTheme.typography.headlineLarge,
-                )
+                        style = MaterialTheme.typography.headlineLarge,
+                    )
+                    Text(
+                        modifier = Modifier.background(Color.Yellow),
+                        text = "a",
+                        style = MaterialTheme.typography.headlineLarge,
+                    )
+                }
             }
+            Text(
+                modifier = Modifier.background(Color.Yellow),
+                text = "123",
+                style = MaterialTheme.typography.headlineLarge,
+            )
         }
     }
 }
