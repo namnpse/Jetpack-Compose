@@ -24,26 +24,37 @@ class CoreUIActivity : ComponentActivity() {
 
 @Composable
 fun StateScreen() {
-    GreetingList()
+    val nameList = remember { mutableStateListOf<String>("Nam", "Bryan") }
+    val newName = remember { mutableStateOf("") }
+    GreetingList(
+        nameList,
+        onButtonAddClick = {
+            nameList.add(newName.value)
+        },
+        newName.value,
+        onValueChange = { name ->
+            newName.value = name
+        }
+    )
 }
 
 @Composable
-fun GreetingList() {
-    val nameList = remember { mutableStateListOf<String>("Nam", "Bryan") }
-    val newName = remember { mutableStateOf("") }
+fun GreetingList(
+    nameList: List<String>,
+    onButtonAddClick: () -> Unit,
+    newName: String,
+    onValueChange: (String) -> Unit,
+) {
+
     Column {
         for (name in nameList) {
             Text(text = "Hello $name")
         }
         TextField(
-            value = newName.value,
-            onValueChange = { name ->
-                newName.value = name
-            },
+            value = newName,
+            onValueChange = onValueChange,
         )
-        Button(onClick = {
-            nameList.add(newName.value)
-        }) {
+        Button(onClick = onButtonAddClick) {
             Text(text = "Add name")
         }
     }
