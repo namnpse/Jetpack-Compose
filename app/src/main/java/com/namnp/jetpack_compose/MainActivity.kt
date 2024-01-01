@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.namnp.jetpack_compose.practice.ui.MainScreen
+import com.namnp.jetpack_compose.practice.components.MainScreen
 import com.namnp.jetpack_compose.ui.theme.JetpackComposeTheme
 
 class MainActivity : ComponentActivity() {

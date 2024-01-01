@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.practice.ui
+package com.namnp.jetpack_compose.practice.components
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.padding

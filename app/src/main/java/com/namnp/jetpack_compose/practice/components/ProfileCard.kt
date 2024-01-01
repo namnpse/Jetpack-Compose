@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.namnp.jetpack_compose.practice.ui
+package com.namnp.jetpack_compose.practice.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Row
@@ -32,6 +32,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.namnp.jetpack_compose.practice.model.UserProfile
+import com.namnp.jetpack_compose.practice.model.userProfileList
 
 @Composable
 fun MainScreen(userProfiles: List<UserProfile> = userProfileList) {
