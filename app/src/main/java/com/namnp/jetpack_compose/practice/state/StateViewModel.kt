@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.state
+package com.namnp.jetpack_compose.practice.state
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

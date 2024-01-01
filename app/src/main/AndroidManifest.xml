@@ -17,7 +17,7 @@
         android:theme="@style/Theme.JetpackCompose"
         tools:targetApi="31">
         <activity
-            android:name=".core_ui.CoreUIActivity"
+            android:name=".practice.core_ui.CoreUIActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
