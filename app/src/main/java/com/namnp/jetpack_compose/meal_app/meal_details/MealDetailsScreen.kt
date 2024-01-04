@@ -1,5 +1,6 @@
 package com.namnp.jetpack_compose.meal_app.meal_details
 
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,8 +9,13 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
@@ -18,6 +24,11 @@ import com.namnp.jetpack_compose.meal_app.model.response.MealResponse
 
 @Composable
 fun MealDetailsScreen(meal: MealResponse?) {
+    var isExpanded by remember { mutableStateOf(false) }
+    val animatedDp: Dp by animateDpAsState(
+        targetValue = if (isExpanded) 200.dp else 100.dp,
+        label = "",
+    )
     Column {
         Row {
             Card {
@@ -29,12 +40,14 @@ fun MealDetailsScreen(meal: MealResponse?) {
                             }).build()
                     ),
                     contentDescription = null,
-                    modifier = Modifier.size(200.dp)
+                    modifier = Modifier.size(animatedDp)
                 )
             }
-            Text(meal?.name?: "default name")
+            Text(meal?.name ?: "default name")
         }
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = {
+            isExpanded = !isExpanded
+        }) {
             Text("Change state of meal profile picture")
         }
     }
