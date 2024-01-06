@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.meal_app.meal_details
+package com.namnp.jetpack_compose.animation
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.BorderStroke
@@ -8,10 +8,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -31,13 +30,11 @@ import com.namnp.jetpack_compose.meal_app.model.response.MealResponse
 import kotlin.math.min
 
 @Composable
-fun AnimatedMealDetailsScreen(meal: MealResponse?) {
-    val scrollState = rememberLazyListState()
-    val offset = min(1f, 1 -
-            (scrollState.firstVisibleItemScrollOffset / 600f
-                    + scrollState.firstVisibleItemIndex))
+fun CollapsingToolBarScreen(meal: MealResponse?) {
+    val scrollState = rememberScrollState()
+    val offset = min(1f, 1 - (scrollState.value / 600f))
     val size by animateDpAsState(
-        targetValue = max(100.dp, 140.dp * offset),
+        targetValue = max(100.dp, 200.dp * offset),
         label = "",
     )
 
@@ -56,7 +53,8 @@ fun AnimatedMealDetailsScreen(meal: MealResponse?) {
                         Image(
                             painter = rememberAsyncImagePainter(
                                 ImageRequest.Builder(LocalContext.current)
-                                    .data(data = meal?.imageUrl).apply(block = fun ImageRequest.Builder.() {
+                                    .data(data = meal?.imageUrl)
+                                    .apply(block = fun ImageRequest.Builder.() {
                                         transformations(CircleCropTransformation())
                                     }).build()
                             ),
@@ -73,10 +71,9 @@ fun AnimatedMealDetailsScreen(meal: MealResponse?) {
                     )
                 }
             }
-            val dummyContentList = (0..100).map { it.toString() }
-            LazyColumn(state = scrollState) {
-                items(dummyContentList) { dummyItem ->
-                    Text(text = dummyItem, modifier = Modifier.padding(24.dp))
+            Column(modifier = Modifier.verticalScroll(scrollState)) {
+                for (i in 1..10) {
+                    Text(text = "Default name", modifier = Modifier.padding(32.dp))
                 }
             }
         }
