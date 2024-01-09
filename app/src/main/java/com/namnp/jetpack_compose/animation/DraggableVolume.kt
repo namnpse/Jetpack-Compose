@@ -82,6 +82,7 @@ fun DraggableVolumeBuilder() {
     }
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun DraggableVolume(
     modifier: Modifier = Modifier,
