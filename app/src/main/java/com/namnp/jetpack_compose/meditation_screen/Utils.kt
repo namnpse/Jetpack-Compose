@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.meditation_app
+package com.namnp.jetpack_compose.meditation_screen
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Path

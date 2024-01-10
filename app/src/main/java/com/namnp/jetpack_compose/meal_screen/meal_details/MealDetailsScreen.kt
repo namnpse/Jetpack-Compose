@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.meal_app.meal_details
+package com.namnp.jetpack_compose.meal_screen.meal_details
 
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.animateDp
@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
-import com.namnp.jetpack_compose.meal_app.model.response.MealResponse
+import com.namnp.jetpack_compose.meal_screen.model.response.MealResponse
 
 @Composable
 fun MealDetailsScreen(meal: MealResponse?) {

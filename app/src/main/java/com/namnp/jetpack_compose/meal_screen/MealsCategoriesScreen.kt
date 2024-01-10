@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.meal_app
+package com.namnp.jetpack_compose.meal_screen
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
@@ -33,7 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
-import com.namnp.jetpack_compose.meal_app.model.response.MealResponse
+import com.namnp.jetpack_compose.meal_screen.model.response.MealResponse
 import com.namnp.jetpack_compose.ui.theme.JetpackComposeTheme
 
 @Composable

@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.meditation_app.components
+package com.namnp.jetpack_compose.meditation_screen.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

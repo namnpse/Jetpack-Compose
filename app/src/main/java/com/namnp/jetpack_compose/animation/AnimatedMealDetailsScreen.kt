@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.max
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
-import com.namnp.jetpack_compose.meal_app.model.response.MealResponse
+import com.namnp.jetpack_compose.meal_screen.model.response.MealResponse
 import kotlin.math.min
 
 @Composable

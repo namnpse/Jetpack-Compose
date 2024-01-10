@@ -1,8 +1,8 @@
-package com.namnp.jetpack_compose.meal_app.model
+package com.namnp.jetpack_compose.meal_screen.model
 
-import com.namnp.jetpack_compose.meal_app.model.api.MealsWebService
-import com.namnp.jetpack_compose.meal_app.model.response.MealResponse
-import com.namnp.jetpack_compose.meal_app.model.response.MealsCategoriesResponse
+import com.namnp.jetpack_compose.meal_screen.model.api.MealsWebService
+import com.namnp.jetpack_compose.meal_screen.model.response.MealResponse
+import com.namnp.jetpack_compose.meal_screen.model.response.MealsCategoriesResponse
 
 class MealsRepository(private val webService: MealsWebService = MealsWebService()) {
 

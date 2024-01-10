@@ -1,10 +1,10 @@
-package com.namnp.jetpack_compose.meal_app.meal_details
+package com.namnp.jetpack_compose.meal_screen.meal_details
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.namnp.jetpack_compose.meal_app.model.MealsRepository
-import com.namnp.jetpack_compose.meal_app.model.response.MealResponse
+import com.namnp.jetpack_compose.meal_screen.model.MealsRepository
+import com.namnp.jetpack_compose.meal_screen.model.response.MealResponse
 
 class MealDetailsViewModel(
     savedStateHandle: SavedStateHandle

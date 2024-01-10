@@ -1,10 +1,10 @@
-package com.namnp.jetpack_compose.meal_app
+package com.namnp.jetpack_compose.meal_screen
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.namnp.jetpack_compose.meal_app.model.MealsRepository
-import com.namnp.jetpack_compose.meal_app.model.response.MealResponse
+import com.namnp.jetpack_compose.meal_screen.model.MealsRepository
+import com.namnp.jetpack_compose.meal_screen.model.response.MealResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

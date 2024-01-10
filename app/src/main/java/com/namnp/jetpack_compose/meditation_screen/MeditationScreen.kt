@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalFoundationApi::class)
 
-package com.namnp.jetpack_compose.meditation_app
+package com.namnp.jetpack_compose.meditation_screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -21,14 +21,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.namnp.jetpack_compose.R
-import com.namnp.jetpack_compose.meditation_app.components.BottomNavigationMenu
-import com.namnp.jetpack_compose.meditation_app.components.ChipSection
-import com.namnp.jetpack_compose.meditation_app.components.CurrentMeditation
-import com.namnp.jetpack_compose.meditation_app.components.FeatureItem
-import com.namnp.jetpack_compose.meditation_app.components.WelcomeSection
-import com.namnp.jetpack_compose.meditation_app.model.BottomMenuModel
-import com.namnp.jetpack_compose.meditation_app.model.MeditationFeature
-import com.namnp.jetpack_compose.meditation_app.model.features
+import com.namnp.jetpack_compose.meditation_screen.components.BottomNavigationMenu
+import com.namnp.jetpack_compose.meditation_screen.components.ChipSection
+import com.namnp.jetpack_compose.meditation_screen.components.CurrentMeditation
+import com.namnp.jetpack_compose.meditation_screen.components.FeatureItem
+import com.namnp.jetpack_compose.meditation_screen.components.WelcomeSection
+import com.namnp.jetpack_compose.meditation_screen.model.BottomMenuModel
+import com.namnp.jetpack_compose.meditation_screen.model.MeditationFeature
+import com.namnp.jetpack_compose.meditation_screen.model.features
 import com.namnp.jetpack_compose.ui.theme.DeepBlue
 
 @Composable

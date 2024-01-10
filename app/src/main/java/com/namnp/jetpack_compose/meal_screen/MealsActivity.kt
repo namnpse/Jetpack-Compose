@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.meal_app
+package com.namnp.jetpack_compose.meal_screen
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -10,8 +10,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.namnp.jetpack_compose.meal_app.meal_details.MealDetailsScreen
-import com.namnp.jetpack_compose.meal_app.meal_details.MealDetailsViewModel
+import com.namnp.jetpack_compose.meal_screen.meal_details.MealDetailsScreen
+import com.namnp.jetpack_compose.meal_screen.meal_details.MealDetailsViewModel
 import com.namnp.jetpack_compose.ui.theme.JetpackComposeTheme
 
 class MealsActivity : AppCompatActivity() {

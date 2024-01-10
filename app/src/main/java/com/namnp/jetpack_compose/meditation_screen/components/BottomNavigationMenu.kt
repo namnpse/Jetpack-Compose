@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.meditation_app.components
+package com.namnp.jetpack_compose.meditation_screen.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,7 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.namnp.jetpack_compose.meditation_app.model.BottomMenuModel
+import com.namnp.jetpack_compose.meditation_screen.model.BottomMenuModel
 import com.namnp.jetpack_compose.ui.theme.AquaBlue
 import com.namnp.jetpack_compose.ui.theme.ButtonBlue
 import com.namnp.jetpack_compose.ui.theme.DeepBlue

@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.meditation_app.components
+package com.namnp.jetpack_compose.meditation_screen.components
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -23,8 +23,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.namnp.jetpack_compose.meditation_app.drawQuadFromTo
-import com.namnp.jetpack_compose.meditation_app.model.MeditationFeature
+import com.namnp.jetpack_compose.meditation_screen.drawQuadFromTo
+import com.namnp.jetpack_compose.meditation_screen.model.MeditationFeature
 import com.namnp.jetpack_compose.ui.theme.ButtonBlue
 import com.namnp.jetpack_compose.ui.theme.TextWhite
 

@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.meal_app.model.response
+package com.namnp.jetpack_compose.meal_screen.model.response
 
 import com.google.gson.annotations.SerializedName
 

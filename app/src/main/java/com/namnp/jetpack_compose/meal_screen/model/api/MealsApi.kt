@@ -1,6 +1,6 @@
-package com.namnp.jetpack_compose.meal_app.model.api
+package com.namnp.jetpack_compose.meal_screen.model.api
 
-import com.namnp.jetpack_compose.meal_app.model.response.MealsCategoriesResponse
+import com.namnp.jetpack_compose.meal_screen.model.response.MealsCategoriesResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET

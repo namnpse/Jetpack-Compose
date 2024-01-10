@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.meditation_app.model
+package com.namnp.jetpack_compose.meditation_screen.model
 
 import com.namnp.jetpack_compose.R
 import com.namnp.jetpack_compose.ui.theme.Beige1
