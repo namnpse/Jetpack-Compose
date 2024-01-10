@@ -40,26 +40,30 @@ fun MainApp() {
                 items = listOf(
                     BottomNavModel(
                         title = "Home",
-                        route = "home",
+                        route = Screen.Home.route,
                         icon = Icons.Default.Home
                     ),
                     BottomNavModel(
                         title = "Chat",
-                        route = "chat",
+                        route = Screen.Chat.route,
                         icon = Icons.Default.MailOutline,
                         badgeCount = 23
                     ),
                     BottomNavModel(
                         title = "Settings",
-                        route = "settings",
+                        route = Screen.Notification.route,
                         icon = Icons.Default.Notifications,
 //                        badgeCount = 214,
                         showDot = true,
                     ),
                 ),
                 navController = navController,
-                onItemClick = {
-                    navController.navigate(it.route)
+                onItemClick = { item ->
+//                    navController.navigate(item.route)
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.startDestinationId)
+                        launchSingleTop = true
+                    }
                 }
             )
         }
@@ -72,14 +76,14 @@ fun MainApp() {
 
 @Composable
 fun Navigation(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "home") {
-        composable("home") {
+    NavHost(navController = navController, startDestination = Screen.Chat.route) {
+        composable(Screen.Home.route) {
             HomeScreen()
         }
-        composable("chat") {
+        composable(Screen.Chat.route) {
             ChatScreen()
         }
-        composable("settings") {
+        composable(Screen.Notification.route) {
             NotificationScreen()
         }
     }
@@ -121,11 +125,14 @@ fun BottomNavigationBar(
                 icon = {
                     BadgedBox(
                         badge = {
-                            if(item.badgeCount > 0) {
+                            if (item.badgeCount > 0) {
                                 Badge {
-                                    Text(text = item.badgeCount.toString())
+                                    val displayBadgeCount =
+                                        if (item.badgeCount > 9) "9+"
+                                        else item.badgeCount.toString()
+                                    Text(text = displayBadgeCount)
                                 }
-                            } else if(item.showDot) {
+                            } else if (item.showDot) {
                                 Badge()
                             }
                         }
