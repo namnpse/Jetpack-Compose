@@ -25,12 +25,12 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun MultipleSelectionList() {
-
+fun MultipleSelectionListBuilder() {
+    MultipleSelectionList()
 }
 
 @Composable
-fun MultipleSelectionListBuilder() {
+fun MultipleSelectionList() {
     var items by remember {
         mutableStateOf(
             (1..20).map {
@@ -78,7 +78,7 @@ fun MultipleSelectionListBuilder() {
 @Preview(showBackground = true)
 @Composable
 fun MultipleSelectionListPreview() {
-
+    MultipleSelectionList()
 }
 
 data class ListItem(
