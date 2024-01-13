@@ -6,6 +6,9 @@
         height: 40,
         start: ['parent', 'start', 16],
         top: ['parent', 'top', 16],
+        custom: {
+          background: '#0695FF',
+        }
       },
       username: {
         top: ['img_avatar', 'top'],
@@ -28,6 +31,9 @@
         start: ['parent', 'start'],
         end: ['parent', 'end'],
         top: ['parent', 'top', 16],
+        custom: {
+          background: '#A334FA'
+        }
       },
       username: {
         top: ['img_avatar', 'bottom', 16],
