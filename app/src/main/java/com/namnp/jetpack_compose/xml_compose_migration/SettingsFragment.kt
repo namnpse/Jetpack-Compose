@@ -1,9 +1,14 @@
 package com.namnp.jetpack_compose.xml_compose_migration
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.fragment.app.Fragment
 import com.namnp.jetpack_compose.databinding.FragmentSettingsBinding
 
@@ -22,6 +27,25 @@ class SettingsFragment : Fragment() {
     ): View {
 
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
+
+        binding.composeView.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                AndroidView(
+                    factory = {
+                        TextView(it) // android.widget.TextView, not Compose TextView
+                    }
+                ) { textView ->
+                    textView.apply {
+                        text = "This is an XML view in a composable"
+                        setTextColor(Color.BLACK)
+                        textSize = 20f
+                        gravity = Gravity.CENTER
+                    }
+                }
+            }
+        }
+
         return binding.root
     }
 
