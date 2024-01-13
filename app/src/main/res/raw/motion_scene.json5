@@ -1,0 +1,62 @@
+{
+  ConstraintSets: {
+    start: {
+      img_avatar: {
+        width: 40,
+        height: 40,
+        start: ['parent', 'start', 16],
+        top: ['parent', 'top', 16],
+      },
+      username: {
+        top: ['img_avatar', 'top'],
+        bottom: ['img_avatar', 'bottom'],
+        start: ['img_avatar', 'end', 16]
+      },
+      box: {
+        width: 'spread',
+        height: 'spread',
+        start: ['parent', 'start'],
+        end: ['parent', 'end'],
+        top: ['parent', 'top'],
+        bottom: ['parent', 'bottom', -16],
+      }
+    },
+    end: {
+      img_avatar: {
+        width: 150,
+        height: 150,
+        start: ['parent', 'start'],
+        end: ['parent', 'end'],
+        top: ['parent', 'top', 16],
+      },
+      username: {
+        top: ['img_avatar', 'bottom', 16],
+        end: ['parent', 'end'],
+        start: ['parent', 'start']
+      },
+      box: {
+        width: 'spread',
+        height: 'spread',
+        start: ['parent', 'start'],
+        end: ['parent', 'end'],
+        top: ['parent', 'top'],
+        bottom: ['parent', 'bottom', -16],
+      }
+    }
+  },
+  Transitions: {
+    default: {
+      from: 'start',
+      to: 'end',
+      pathMotionArc: 'startHorizontal',
+      KeyFrames: {
+        KeyAttributes: [
+          {
+            target: ['img_avatar'],
+            frames: [0, 100]
+          },
+        ]
+      }
+    }
+  }
+}
