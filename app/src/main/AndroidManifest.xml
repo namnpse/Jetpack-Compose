@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".xml_compose_migration.XmlComposeActivity"
+            android:exported="false" />
+        <activity
             android:name=".meal_screen.MealsActivity"
             android:exported="false" />
         <activity
