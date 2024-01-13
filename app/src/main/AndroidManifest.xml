@@ -20,6 +20,9 @@
             android:name=".xml_compose_migration.XmlComposeActivity"
             android:exported="false" />
         <activity
+            android:name=".handle_permission.HandlePermissionActivity"
+            android:exported="false" />
+        <activity
             android:name=".meal_screen.MealsActivity"
             android:exported="false" />
         <activity
