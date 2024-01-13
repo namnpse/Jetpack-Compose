@@ -23,6 +23,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.namnp.jetpack_compose.R
+import com.namnp.jetpack_compose.ui.LocalSpacing
 
 @Composable
 fun ImageCardBuilder() {
@@ -31,7 +32,7 @@ fun ImageCardBuilder() {
     val description = "An mobile Developer"
     Box(modifier = Modifier
         .fillMaxWidth(0.5f)
-        .padding(16.dp)) {
+        .padding(LocalSpacing.current.medium)) {
         ImageCard(
             painter,
             description,
@@ -75,7 +76,7 @@ fun ImageCard(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(12.dp),
+                    .padding(LocalSpacing.current.medium),
                 contentAlignment = Alignment.BottomStart
             ) {
                 Text(
