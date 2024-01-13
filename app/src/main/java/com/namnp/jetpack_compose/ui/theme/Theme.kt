@@ -14,6 +14,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.namnp.jetpack_compose.ui.LocalSpacing
 import com.namnp.jetpack_compose.ui.Spacing
@@ -38,6 +39,16 @@ private val LightColorScheme = lightColorScheme(
     onBackground = Color(0xFF1C1B1F),
     onSurface = Color(0xFF1C1B1F),
     */
+)
+
+private val PhoneSpacing = Spacing()
+private val TabletSpacing = Spacing(
+    default = 0.dp,
+    extraSmall = 12.dp,
+    small = 16.dp,
+    medium = 24.dp,
+    large = 48.dp,
+    extraLarge = 80.dp,
 )
 
 @Composable
@@ -65,8 +76,13 @@ fun JetpackComposeTheme(
         }
     }
 
+    // Define other Spacing objects: TabletSpacing, DesktopSpacing
+    // check device type here and apply appropriate Spacing object here
+//    val spacing = if(isTablet()) TabletSpacing else PhoneSpacing
+
     CompositionLocalProvider(
         LocalSpacing provides Spacing(),
+//        LocalSpacing provides spacing,
         // add more LocalXXX here: e.g: LocalElevation, LocalDimension, LocalTextSize,...
     ) {
         MaterialTheme(

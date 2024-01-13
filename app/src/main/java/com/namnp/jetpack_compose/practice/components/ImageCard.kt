@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,7 +24,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.namnp.jetpack_compose.R
-import com.namnp.jetpack_compose.ui.LocalSpacing
+import com.namnp.jetpack_compose.ui.spacing
 
 @Composable
 fun ImageCardBuilder() {
@@ -32,7 +33,8 @@ fun ImageCardBuilder() {
     val description = "An mobile Developer"
     Box(modifier = Modifier
         .fillMaxWidth(0.5f)
-        .padding(LocalSpacing.current.medium)) {
+//        .padding(LocalSpacing.current.medium)) {
+        .padding(MaterialTheme.spacing.medium)) {
         ImageCard(
             painter,
             description,
@@ -76,7 +78,8 @@ fun ImageCard(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(LocalSpacing.current.medium),
+//                    .padding(LocalSpacing.current.medium),
+                    .padding(MaterialTheme.spacing.medium),
                 contentAlignment = Alignment.BottomStart
             ) {
                 Text(
