@@ -61,6 +61,12 @@
             target: ['img_avatar'],
             frames: [0, 100]
           },
+          {
+            target: ['username'],
+            frames: [0, 50, 100],
+            translationX: [0, 90, 0],
+            translationY: [0, 30, 0],
+          }
         ]
       }
     }
