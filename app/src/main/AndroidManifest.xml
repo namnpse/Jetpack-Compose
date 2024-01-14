@@ -23,11 +23,14 @@
             android:name=".handle_permission.HandlePermissionActivity"
             android:exported="false" />
         <activity
-        android:name=".nav_destination.NavDestinationActivity"
-        android:exported="false" />
+            android:name=".nav_destination.NavDestinationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".support_screen_sizes.SupportScreenSizesActivity"
+            android:exported="false" />
         <activity
             android:name=".meal_screen.MealsActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
