@@ -23,16 +23,21 @@
             android:name=".handle_permission.HandlePermissionActivity"
             android:exported="false" />
         <activity
-            android:name=".meal_screen.MealsActivity"
-            android:exported="false" />
+        android:name=".nav_destination.NavDestinationActivity"
+        android:exported="false" />
         <activity
-            android:name=".practice.core_ui.CoreUIActivity"
-            android:exported="true">
+            android:name=".meal_screen.MealsActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".practice.core_ui.CoreUIActivity"
+            android:exported="true">
+
         </activity>
         <activity
             android:name=".MainActivity"
