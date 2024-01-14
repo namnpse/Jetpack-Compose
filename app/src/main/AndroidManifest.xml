@@ -38,7 +38,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".practice.core_ui.CoreUIActivity"
+            android:name=".core_ui.CoreUIActivity"
             android:exported="true">
 
         </activity>

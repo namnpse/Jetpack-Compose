@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.practice.core_ui
+package com.namnp.jetpack_compose.core_ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
