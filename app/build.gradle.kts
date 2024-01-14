@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp") version "1.9.22-1.0.16"
 }
 
 android {
@@ -50,7 +51,13 @@ android {
     }
 }
 
+// Global
+val navDestinationVersion: String by rootProject.extra
+
 dependencies {
+
+    // Locally in app module
+//    val navDestinationVersion = "1.9.59"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -85,6 +92,10 @@ dependencies {
 
     // handling permissions
     implementation("com.google.accompanist:accompanist-permissions:0.32.0")
+
+    // navigation destination
+    implementation("io.github.raamcosta.compose-destinations:core:$navDestinationVersion")
+    ksp("io.github.raamcosta.compose-destinations:ksp:$navDestinationVersion")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
