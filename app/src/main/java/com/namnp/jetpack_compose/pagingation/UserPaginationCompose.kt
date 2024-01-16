@@ -9,9 +9,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,14 +27,24 @@ fun UserPaginationCompose() {
 
     val userViewModel = viewModel<UserViewModel>()
     val state = userViewModel.state
+    val scrollState = rememberLazyListState()
+    LaunchedEffect(key1 = scrollState) {
+        // condition to check if scrolled to end
+        val lastVisibleItem = scrollState.layoutInfo.visibleItemsInfo.lastOrNull()
+            ?: return@LaunchedEffect
+//        scrollState.canScrollForward // need to check
+        if (lastVisibleItem.index == state.users.size - 1 && !state.isReachedEnd && !state.isLoading) {
+            userViewModel.loadUsers()
+        }
+    }
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
         items(state.users.size) { i ->
             val item = state.users[i]
-            if (i >= state.users.size - 1 && !state.isReachedEnd && !state.isLoading) {
+            /*if (i >= state.users.size - 1 && !state.isReachedEnd && !state.isLoading) {
                 userViewModel.loadUsers()
-            }
+            }*/
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -44,7 +56,7 @@ fun UserPaginationCompose() {
                     color = Color.Black
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Text("Address: ${item.address})
+                Text("Address: ${item.address}")
             }
         }
         item {
