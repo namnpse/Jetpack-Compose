@@ -28,6 +28,27 @@
         <activity
             android:name=".support_screen_sizes.SupportScreenSizesActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".deep_linking.DeepLinkActivity"
+            android:exported="true" >
+            <intent-filter android:autoVerify="true">
+                <data android:host="namnpse.com"
+                    android:scheme="https" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+
+            <intent-filter>
+                <data android:host="namnpse.com"
+                    android:scheme="http" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        
         <activity
             android:name=".meal_screen.MealsActivity"
             android:exported="true">
@@ -37,6 +58,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".deep_linking.DeepLinkSenderActivity"
+            android:exported="false" />
         <activity
             android:name=".core_ui.CoreUIActivity"
             android:exported="true">
