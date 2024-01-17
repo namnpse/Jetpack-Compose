@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Jetpack-Compose"
 include(":app")
- 
+include(":external")

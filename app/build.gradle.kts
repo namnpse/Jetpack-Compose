@@ -96,6 +96,7 @@ dependencies {
 
     // navigation destination
     implementation("io.github.raamcosta.compose-destinations:core:$navDestinationVersion")
+    implementation(project(":external"))
     ksp("io.github.raamcosta.compose-destinations:ksp:$navDestinationVersion")
 
     testImplementation("junit:junit:4.13.2")
