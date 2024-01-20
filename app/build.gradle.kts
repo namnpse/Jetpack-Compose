@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp") version "1.9.22-1.0.16"
     id("kotlin-parcelize")
+    id("com.google.relay") version "0.3.09"
 }
 
 android {
@@ -96,7 +97,7 @@ dependencies {
 
     // navigation destination
     implementation("io.github.raamcosta.compose-destinations:core:$navDestinationVersion")
-    implementation(project(":external"))
+//    implementation(project(":external"))
     ksp("io.github.raamcosta.compose-destinations:ksp:$navDestinationVersion")
 
     testImplementation("junit:junit:4.13.2")
