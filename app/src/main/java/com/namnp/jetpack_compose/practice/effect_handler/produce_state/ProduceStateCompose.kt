@@ -15,12 +15,14 @@ fun produceStateCompose(countUpTo: Int): State<Int> {
         }
     }
     // similar to flow
-/*    return flow<Int> {
+/*
+    return flow<Int> {
         var value = 0
         while(value < countUpTo) {
             delay(1000L)
             value++
             emit(value)
         }
-    }.collectAsState(initial = 0)*/
+//    }.collectAsState(initial = 0)
+    }.collectAsStateWithLifecycle(initialValue = 0)*/
 }
