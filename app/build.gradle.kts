@@ -38,6 +38,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        /* Starting from JDK 1.8, interfaces in Java can contain default methods.
+        To make all non-abstract members of Kotlin interfaces default for the Java classes implementing them,
+        compile the Kotlin code with the -Xjvm-default=all compiler option.*/
+        /* if using Kotlin(interface) and Kotlin(Implementation), don't need to enable Xjvm-default=all,
+        only for Kotlin-Java client*/
+        freeCompilerArgs = listOf("-Xjvm-default=all")
     }
     buildFeatures {
         compose = true
