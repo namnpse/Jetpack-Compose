@@ -5,4 +5,12 @@ plugins {
 
 }
 
+buildscript {
+    repositories {
+        google()
+        gradlePluginPortal()
+        maven(url = "https://oss.sonatype.org/content/repositories/snapshots/")
+    }
+}
+
 val navDestinationVersion by extra { "1.9.59" }

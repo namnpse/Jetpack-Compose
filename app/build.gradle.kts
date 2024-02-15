@@ -60,6 +60,7 @@ dependencies {
 
     // Locally in app module
 //    val navDestinationVersion = "1.9.59"
+    val lottieVersion = "6.3.0"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -102,6 +103,10 @@ dependencies {
 
     // Compose with lifecycle
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+
+    // Lottie animation
+    implementation("com.airbnb.android:lottie:$lottieVersion")
+    implementation("com.airbnb.android:lottie-compose:$lottieVersion")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
