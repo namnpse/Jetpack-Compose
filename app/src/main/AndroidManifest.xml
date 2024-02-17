@@ -50,7 +50,7 @@
         </activity>
         
         <activity
-            android:name=".meal_screen.MealsActivity"
+            android:name=".edge_to_edge.EdgeToEdgeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,6 +60,9 @@
         </activity>
         <activity
             android:name=".deep_linking.DeepLinkSenderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".meal_screen.MealsActivity"
             android:exported="false" />
         <activity
             android:name=".core_ui.CoreUIActivity"

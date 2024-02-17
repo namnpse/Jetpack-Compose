@@ -68,6 +68,7 @@ dependencies {
 //    val navDestinationVersion = "1.9.59"
     val lottieVersion = "6.3.0"
     val dragAndDropVer = "1.0.5"
+    val accompanist_version = "0.32.0"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -118,6 +119,10 @@ dependencies {
     // foundation: drag and drop
     implementation("androidx.compose.foundation:foundation:1.6.1")
 //    implementation ("com.github.JGomez-Dev:drag-and-drop-compose-library:$dragAndDropVer")
+
+    // System UI Controller - Accompanist
+    implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanist_version")
+    implementation("com.google.accompanist:accompanist-pager:0.22.0-rc")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
