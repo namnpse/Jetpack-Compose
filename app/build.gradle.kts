@@ -117,7 +117,7 @@ dependencies {
 
     // foundation: drag and drop
     implementation("androidx.compose.foundation:foundation:1.6.1")
-    implementation ("com.github.JGomez-Dev:drag-and-drop-compose-library:$dragAndDropVer")
+//    implementation ("com.github.JGomez-Dev:drag-and-drop-compose-library:$dragAndDropVer")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
