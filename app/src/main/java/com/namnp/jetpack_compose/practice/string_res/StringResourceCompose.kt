@@ -29,6 +29,9 @@ fun StringResourceCompose() {
         }
     }
     Scaffold {
+        viewModel.logMessage.value?.let { value ->
+            Text(text = "Example String Resource Usage${value.asString()}") // Compose asString
+        }
         Column(
             modifier = Modifier
                 .fillMaxSize()
