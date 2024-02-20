@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.fragment.app.Fragment
 import com.namnp.jetpack_compose.databinding.FragmentSettingsBinding
+import com.namnp.jetpack_compose.practice.components.ImageCardBuilder
 
 class SettingsFragment : Fragment() {
 
@@ -28,9 +29,18 @@ class SettingsFragment : Fragment() {
 
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
+       /* setContent { // for Compose Activity
+            JetpackComposeTheme {
+                ImageCardBuilder()
+            }
+        }*/
+
         binding.composeView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
+                ImageCardBuilder() // call Composable View
+
+                // or put traditional Android views like android.widget.TextView,... here
                 AndroidView(
                     factory = {
                         TextView(it) // android.widget.TextView, not Compose TextView

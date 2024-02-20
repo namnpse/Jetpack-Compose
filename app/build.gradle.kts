@@ -124,6 +124,8 @@ dependencies {
     implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanist_version")
     implementation("com.google.accompanist:accompanist-pager:0.22.0-rc")
 
+    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
