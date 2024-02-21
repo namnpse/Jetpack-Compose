@@ -63,6 +63,8 @@ fun LaunchedEffectCompose(counter: Int) {
                 is ScreenEvent.Navigate -> {
 
                 }
+
+                else -> {}
             }
         }
     }
