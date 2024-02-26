@@ -1,5 +1,6 @@
 package com.namnp.jetpack_compose.practice.string_res
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,8 +17,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.namnp.jetpack_compose.util.SingleEventEffect
 
 @Composable
 fun StringResourceCompose() {
@@ -28,6 +33,22 @@ fun StringResourceCompose() {
             println(error.asString(context)) // normal asString
         }
     }
+
+    // C1:
+    val lifecycleOwner = LocalLifecycleOwner.current
+    LaunchedEffect(key1 = viewModel.errors) {
+        lifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+            viewModel.errors.collect {
+                Toast.makeText(context, it.asString(context), Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    // C2: use common fun
+    SingleEventEffect(sideEffectFlow = viewModel.errors) {
+        Toast.makeText(context, it.asString(context), Toast.LENGTH_LONG).show()
+    }
+
     Scaffold {
         viewModel.logMessage.value?.let { value ->
             Text(text = "Example String Resource Usage${value.asString()}") // Compose asString
