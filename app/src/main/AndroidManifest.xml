@@ -29,6 +29,10 @@
             android:name=".support_screen_sizes.SupportScreenSizesActivity"
             android:exported="false" />
 
+        <activity android:name=".type_safe_navigation.TypeSafeNavigationActivity"
+            android:exported="false"
+            />
+
         <activity
             android:name=".deep_linking.DeepLinkActivity"
             android:exported="true" >

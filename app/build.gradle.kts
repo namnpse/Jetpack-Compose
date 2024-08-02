@@ -4,6 +4,7 @@ plugins {
     id("com.google.devtools.ksp") version "1.9.22-1.0.16"
     id("kotlin-parcelize")
     id("com.google.relay") version "0.3.09"
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
