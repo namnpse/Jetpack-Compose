@@ -131,6 +131,9 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager:0.22.0-rc")
 
     implementation("androidx.constraintlayout:constraintlayout:2.1.2")
+    // import all icons, very large -> consider add material icon in drawable
+    implementation("androidx.compose.material:material-icons-extended:1.6.8")
+
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
