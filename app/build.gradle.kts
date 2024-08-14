@@ -134,6 +134,9 @@ dependencies {
     // import all icons, very large -> consider add material icon in drawable
     implementation("androidx.compose.material:material-icons-extended:1.6.8")
 
+    // Chart
+    implementation(libs.ycharts)
+
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
