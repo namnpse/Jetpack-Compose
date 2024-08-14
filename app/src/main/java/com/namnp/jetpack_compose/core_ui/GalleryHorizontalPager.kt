@@ -5,6 +5,8 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -22,14 +24,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.rememberPagerState
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun GalleryHorizontalPager() {
-    val pagerState = rememberPagerState()
     val images = remember {
         mutableStateListOf(
             "https://picsum.photos/id/27/3264/1836",
@@ -42,6 +39,10 @@ fun GalleryHorizontalPager() {
             "https://picsum.photos/id/22/4434/3729",
         )
     }
+    val pagerState = rememberPagerState(
+        pageCount = { images.size },
+        initialPage = 0,
+    )
     val matrix = remember { ColorMatrix() }
     Scaffold(
         modifier = Modifier
@@ -50,11 +51,11 @@ fun GalleryHorizontalPager() {
     ) {
         HorizontalPager(
             modifier = Modifier.padding(it),
-            count = images.size,
+//            count = images.size,
             state = pagerState,
         ) { index ->
             // 1. add animation when moving, snapped center
-            val pageOffset = (pagerState.currentPage - index) + pagerState.currentPageOffset
+            val pageOffset = (pagerState.currentPage - index) + pagerState.currentPageOffsetFraction
             val imageSize by animateFloatAsState(
                 targetValue = if (pageOffset != 0.0f) 0.8f else 1.0f, // 0.8f when holding, moving, 1.0f when snapped
                 animationSpec = tween(durationMillis = 250),
