@@ -1,4 +1,4 @@
-package com.namnp.jetpack_compose.animated_dropdown
+package com.namnp.jetpack_compose.animation
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
