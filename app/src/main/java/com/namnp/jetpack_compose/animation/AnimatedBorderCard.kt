@@ -6,6 +6,7 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,8 +16,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -35,6 +38,36 @@ fun AnimatedBorderCard(
     onCardClick: () -> Unit = {},
     content: @Composable () -> Unit
 ) {
+    Surface(
+        modifier = modifier
+            .clip(shape)
+            .clickable { onCardClick() },
+        shape = shape
+    ) {
+        Surface(
+            modifier = Modifier
+                .fillMaxWidth()
+                .animatedBorder(
+                    borderWidth = borderWidth,
+                    gradient = gradient,
+                    animationDuration = animationDuration
+                ),
+            color = MaterialTheme.colorScheme.surface,
+            shape = shape
+        ) {
+            content()
+        }
+    }
+}
+
+// create a modifier for animated border instead of a composable
+@Composable
+fun Modifier.animatedBorder(
+    backgroundColor: Color = MaterialTheme.colorScheme.surface,
+    borderWidth: Dp = 2.dp,
+    gradient: Brush = Brush.sweepGradient(listOf(Color.Gray, Color.White)),
+    animationDuration: Int = 10000,
+) = composed {
     val infiniteTransition = rememberInfiniteTransition(label = "Infinite Color Animation")
     val degrees by infiniteTransition.animateFloat(
         initialValue = 0f,
@@ -45,31 +78,16 @@ fun AnimatedBorderCard(
         ),
         label = "Infinite Colors"
     )
-
-    Surface(
-        modifier = modifier
-            .clip(shape)
-            .clickable { onCardClick() },
-        shape = shape
-    ) {
-        Surface(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(borderWidth)
-                .drawWithContent {
-                    rotate(degrees = degrees) {
-                        drawCircle(
-                            brush = gradient,
-                            radius = size.width,
-                            blendMode = BlendMode.SrcIn,
-                        )
-                    }
-                    drawContent()
-                },
-            color = MaterialTheme.colorScheme.surface,
-            shape = shape
-        ) {
-            content()
+    clipToBounds()
+        .padding(borderWidth)
+        .drawBehind {
+            rotate(degrees = degrees) {
+                drawCircle(
+                    brush = gradient,
+                    radius = size.width,
+                    blendMode = BlendMode.SrcIn,
+                )
+            }
         }
-    }
+        .background(backgroundColor)
 }
