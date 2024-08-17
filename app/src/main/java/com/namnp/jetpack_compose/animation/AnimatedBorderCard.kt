@@ -8,13 +8,20 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
@@ -90,4 +97,44 @@ fun Modifier.animatedBorder(
             }
         }
         .background(backgroundColor)
+}
+
+
+// Usage:
+
+@Composable
+fun AnimatedBorderCardScreen(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.surface),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        AnimatedBorderCard(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(24.dp),
+            shape = RoundedCornerShape(8.dp),
+            gradient = Brush.sweepGradient(listOf(Color.Magenta, Color.Cyan)),
+            onCardClick = {
+                // Handle card click
+            }
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(24.dp)
+            ) {
+                Text(
+                    style = MaterialTheme.typography.headlineMedium,
+                    text = "Animated Border Card",
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    style = MaterialTheme.typography.bodySmall,
+                    text = "This is a demonstration of an Animated Border Card",
+                )
+            }
+        }
+    }
 }
