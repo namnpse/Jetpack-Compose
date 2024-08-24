@@ -3,8 +3,8 @@
 package com.namnp.jetpack_compose.practice.components
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -58,7 +58,7 @@ const val USER_LIST_ROUTE = "user_list"
 const val USER_DETAILS_ROUTE = "user_details"
 const val USER_ID = "user_id"
 
-class NavigationActivity : AppCompatActivity() {
+class NavigationActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

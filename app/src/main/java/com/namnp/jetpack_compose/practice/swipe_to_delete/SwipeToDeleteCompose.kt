@@ -13,16 +13,15 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material3.DismissDirection
-import androidx.compose.material3.DismissState
-import androidx.compose.material3.DismissValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.SwipeToDismiss
+import androidx.compose.material3.SwipeToDismissBoxState
+import androidx.compose.material3.SwipeToDismissBoxValue
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberDismissState
+import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -90,9 +89,9 @@ fun <T> SwipeToDeleteContainer(
     var isRemoved by remember {
         mutableStateOf(false)
     }
-    val dismissState = rememberDismissState(
+    val dismissState = rememberSwipeToDismissBoxState(
         confirmValueChange = { value ->
-            if (value == DismissValue.DismissedToStart) {
+            if (value == SwipeToDismissBoxValue.StartToEnd) {
                 isRemoved = true
                 true
             } else {
@@ -121,7 +120,7 @@ fun <T> SwipeToDeleteContainer(
                 SwipeToDeleteBackground(swipeToDismissState = dismissState)
             },
             dismissContent = { content(item) },
-            directions = setOf(DismissDirection.EndToStart)
+            directions = setOf(SwipeToDismissBoxValue.EndToStart)
         )
     }
 }
@@ -129,9 +128,9 @@ fun <T> SwipeToDeleteContainer(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SwipeToDeleteBackground(
-    swipeToDismissState: DismissState
+    swipeToDismissState: SwipeToDismissBoxState
 ) {
-    val color = if (swipeToDismissState.dismissDirection == DismissDirection.EndToStart) {
+    val color = if (swipeToDismissState.dismissDirection == SwipeToDismissBoxValue.EndToStart) {
         Color.Red
     } else Color.Transparent
 
