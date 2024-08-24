@@ -25,6 +25,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 
+private const val MAX_LENGTH_PASSWORD = 20
+
 @Composable
 fun TextFieldComposable(modifier: Modifier = Modifier) {
     Column(
@@ -89,7 +91,6 @@ fun TextFieldComposable(modifier: Modifier = Modifier) {
         )
         PasswordTextField()
     }
-
 }
 
 @Composable
@@ -101,7 +102,11 @@ fun PasswordTextField(modifier: Modifier = Modifier) {
             if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
         OutlinedTextField(
             value = password,
-            onValueChange = { password = it },
+            onValueChange = {
+                if (it.length <= MAX_LENGTH_PASSWORD) {
+                    password = it
+                }
+            },
             singleLine = true,
             placeholder = { Text(text = "Password") },
             label = { Text(text = "Password") },
