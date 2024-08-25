@@ -140,6 +140,10 @@ dependencies {
     // Animation
     implementation(libs.androidx.compose.animation)
 
+    // Adaptive Navigation Suite
+    implementation(libs.androidx.compose.material3.adaptive.navigation.suite)
+    implementation(libs.androidx.compose.material3.adaptive.navigation)
+
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -5,6 +5,7 @@ package com.namnp.jetpack_compose.animation.shared_transition
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionLayout
@@ -24,6 +25,7 @@ import kotlinx.serialization.Serializable
 
 class SharedElementTransitionActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
             JetpackComposeTheme {
