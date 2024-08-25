@@ -4,11 +4,13 @@ kotlin = "1.9.0"
 composeNavigation = "2.8.0-alpha08"
 serialization = "1.6.3"
 ycharts = "2.1.0"
+composeAnimation = "1.7.0-alpha07"
 
 [libraries]
 navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization"}
 ycharts = { module = "co.yml:ycharts", version.ref = "ycharts" }
+androidx-compose-animation = { module = "androidx.compose.animation:animation", version.ref = "composeAnimation"}
 
 [plugins]
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

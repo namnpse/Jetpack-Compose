@@ -137,6 +137,9 @@ dependencies {
     // Chart
     implementation(libs.ycharts)
 
+    // Animation
+    implementation(libs.androidx.compose.animation)
+
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

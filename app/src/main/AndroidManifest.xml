@@ -75,6 +75,10 @@
         </activity>
         <activity
             android:name=".practice.components.NavigationActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".animation.shared_transition.SharedElementTransitionActivity"
             android:exported="true">
 
         </activity>
