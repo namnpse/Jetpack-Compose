@@ -77,7 +77,7 @@ fun UsersApplication(userProfiles: List<UserProfile> = userProfileList) {
             UserListScreen(userProfiles, navController)
         }
         composable(
-            route= "$USER_LIST_ROUTE/{$USER_ID}",
+            route= "$USER_DETAILS_ROUTE/{$USER_ID}",
             arguments = listOf(
                 navArgument(USER_ID) {
                     type = NavType.IntType
