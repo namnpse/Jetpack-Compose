@@ -16,8 +16,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.namnp.jetpack_compose.ui.LocalSpacing
 import com.namnp.jetpack_compose.ui.Spacing
+import androidx.compose.ui.graphics.Color as ComposeColor
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -69,12 +71,26 @@ fun JetpackComposeTheme(
     }
     val view = LocalView.current
     if (!view.isInEditMode) {
-        SideEffect {
+        SideEffect { // set transparent systemBar's color (statusBar and navigationBar)
             val window = (view.context as Activity).window
 //            window.statusBarColor = colorScheme.primary.toArgb()
             // C1: auto setStatusBarColor for all screens
             window.statusBarColor = Color.TRANSPARENT
+            window.navigationBarColor = Color.TRANSPARENT
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+        }
+
+        // set color for systemBar based on theme (for all screens)
+        val systemUiController = rememberSystemUiController()
+        SideEffect {
+            systemUiController.setNavigationBarColor(
+                // setColor Here
+                color = if (darkTheme) ComposeColor.DarkGray else ComposeColor.LightGray,
+                darkIcons = !darkTheme
+            )
+            systemUiController.setStatusBarColor(
+                color = if (darkTheme) ComposeColor.DarkGray else ComposeColor.LightGray,
+            )
         }
     }
 
